@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Hotel Booking</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contactUs.html">Contact</a></li>
+          <li><a href="grpup.html">Group Member</a></li>
+          <li><a href="video.html">Video And Sound</a></li>
+          <li><a href="login.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <h1 style="font-size: 20px; color: rgb(75, 75, 207);">Group Members</h1>
+    <ul id="groupList" style=" list-style-type: none; margin-bottom: 25%; margin-left: 10px; color: rgb(72, 47, 122);">
+    </ul>
+    <footer>
+      <p>&copy; 2024 Hotel Booking. All rights reserved.</p>
+    </footer>
+    <script>
+        const members = ['Saja Albalawi 431008139', 'Khnouzama Eid 421003102', 'Bashyer Alissa 431001378', 'Renad Saeed 431000492'];
+        const groupList = document.getElementById('groupList');
+
+        function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+        }
+
+        function displayList() {
+        const shuffledMembers = shuffleArray(members);
+
+        groupList.innerHTML = '';
+
+        shuffledMembers.forEach((member) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = member;
+            groupList.appendChild(listItem);
+        });
+        }
+
+        displayList();
+
+    </script>
+  </body>
+</html>

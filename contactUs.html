@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us - Hotel Booking</title>
+	<link rel="stylesheet" type="text/css" href="css/contactUs.css">
+</head>
+<body>
+
+	<header>
+		<h1>Hotel Booking</h1>
+		<nav>
+		  <ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="contactUs.html">Contact</a></li>
+			<li><a href="grpup.html">Group Member</a></li>
+			<li><a href="video.html">Video And Sound</a></li>
+			<li><a href="login.html">Logout</a></li>
+		  </ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="contact-section">
+			<h2>Contact Us</h2>
+			<p>If you have any questions, comments, or concerns, please fill out the form below and we'll get back to you as soon as possible.</p>
+
+			<form id="formContact" action="" method="">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" >
+
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" >
+
+				<label for="text">Text:</label>
+				<textarea id="text"  name="text" ></textarea>
+
+				<!-- <input type="submit" value="Send"> -->
+				<button style="background-color: #3c27f8; color: #fff;" type="submit">Submit</button>
+			</form>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2024 Hotel Booking. All rights reserved.</p>
+	</footer>
+
+	<script>
+		const form = document.getElementById('formContact');
+		const namefield = document.getElementById('name');
+		const emailfield = document.getElementById('email');
+		const textfield = document.getElementById('text');
+
+		form.addEventListener('submit', (e) => {
+		  if (!checkName()) {
+			e.preventDefault();
+			alert('Name is not valid');
+			namefield.focus();
+		  }
+
+		  if (!checkEmail()) {
+			e.preventDefault();
+			alert('Email not valid');
+			emailfield.focus();
+		  }
+
+		  if (!checkText()) {
+			e.preventDefault();
+			alert('Text not valid.');
+			textfield.focus();
+		  }
+		});
+
+		function checkName() {
+		  const name = namefield.value.trim();
+		  return name !== '';
+		}
+
+		function checkEmail() {
+		  const email = emailfield.value.trim();
+		  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		  return emailPattern.test(email);
+		}
+
+		function checkText() {
+		  const text = textfield.value.trim();
+		  return text !== '';
+		}
+	</script>
+
+</body>
+</html>
